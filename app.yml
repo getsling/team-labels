@@ -13,17 +13,17 @@
 # The list of events the GitHub App subscribes to.
 # Uncomment the event names below to enable them.
 default_events:
-  # - check_run
-  # - check_suite
-  # - commit_comment
-  # - create
-  # - delete
-  # - deployment
-  # - deployment_status
-  # - fork
-  # - gollum
-  # - issue_comment
-  - issues
+# - check_run
+# - check_suite
+# - commit_comment
+# - create
+# - delete
+# - deployment
+# - deployment_status
+# - fork
+# - gollum
+# - issue_comment
+- issues
 # - label
 # - milestone
 # - member
@@ -35,7 +35,7 @@ default_events:
 # - project_card
 # - project_column
 # - public
-# - pull_request
+- pull_request
 # - pull_request_review
 # - pull_request_review_comment
 # - push
@@ -82,7 +82,7 @@ default_permissions:
 
   # Pull requests and related comments, assignees, labels, milestones, and merges.
   # https://developer.github.com/v3/apps/permissions/#permission-on-pull-requests
-  # pull_requests: read
+  pull_requests: write
 
   # Manage the post-receive hooks for a repository.
   # https://developer.github.com/v3/apps/permissions/#permission-on-repository-hooks
@@ -123,6 +123,12 @@ default_permissions:
   # Get notified of, and update, content references.
   # https://developer.github.com/v3/apps/permissions/
   # organization_administration: read
+
+  # Get a single file.
+  # https://developer.github.com/v3/apps/permissions/#permission-on-single-file
+  single_file: read
+
+
 # The name of the GitHub App. Defaults to the name specified in package.json
 # name: My Probot App
 
@@ -135,3 +141,6 @@ default_permissions:
 # Set to true when your GitHub App is available to the public or false when it is only accessible to the owner of the app.
 # Default: true
 # public: false
+
+# The configuration file path of your GitHub App.
+single_file_name: .github/team_labels.yml
