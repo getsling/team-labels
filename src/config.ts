@@ -11,7 +11,7 @@ export async function get_labels(context: Context): Promise<Set<string>> {
    */
   // Get a list of labels for the repo.
   const repo = context.repo();
-  const response = await context.octokit.rest.issues.listLabelsForRepo(repo);
+  const response = await context.octokit.issues.listLabelsForRepo(repo);
 
   // Construct a set out of the names.
   return new Set(response.data.map(label => label.name));
@@ -32,9 +32,9 @@ export async function parse(context: Context): Promise<void> {
   }
 
   // Check the config.
-  var config_labels = Object.keys(config);
-  //var valid = new Set([...config_labels].filter(x => repo_labels.has(x)));
-  var invalid = new Set([...config_labels].filter(x => !repo_labels.has(x)));
+  let config_labels = Object.keys(config);
+  //let valid = new Set([...config_labels].filter(x => repo_labels.has(x)));
+  let invalid = new Set([...config_labels].filter(x => !repo_labels.has(x)));
 
   // Log the invalid labels.
   if (invalid.size > 0) {
