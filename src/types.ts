@@ -7,3 +7,4 @@ export type LabelNames = Set<string>;
 export type AssigneeLogins = Set<string>;
 
 export type Config = { [key: string]: string[] };
+export type UserToLabels = { [key: string]: Set<string> };

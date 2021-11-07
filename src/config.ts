@@ -1,5 +1,5 @@
 import { Context } from 'probot'
-import { LabelNames, Config } from './types'
+import { LabelNames, Config, UserToLabels } from './types'
 import { get_label_names } from './utils'
 
 // Path of the app configuration.
@@ -19,7 +19,7 @@ export async function get_valid_labels(context: Context): Promise<LabelNames> {
 }
 
 
-export async function parse(context: Context): Promise<void> {
+export async function parse(context: Context): Promise<UserToLabels> {
  /*
    * Parse the configuration and return a list of labels to apply.
    */
@@ -32,9 +32,9 @@ export async function parse(context: Context): Promise<void> {
     throw new Error('could not load config');
   }
 
-  // Check the config.
+  // Validate the config.
   let config_labels = Object.keys(config);
-  //let valid = new Set([...config_labels].filter(x => repo_labels.has(x)));
+  let valid = new Set([...config_labels].filter(x => repo_labels.has(x)));
   let invalid = new Set([...config_labels].filter(x => !repo_labels.has(x)));
 
   // Log the invalid labels.
@@ -42,5 +42,19 @@ export async function parse(context: Context): Promise<void> {
     context.log(`Unknown labels in config: ${Array.from(invalid).join(', ')}`)
   }
 
-  // Don't add a label if it already exists.
+  // Invert the mapping of the config for easy lookup.
+  let result: UserToLabels = {};
+  for (let label in Array.from(valid)) {
+    for (let user in config[label]) {
+      // Create an empty set.
+      if (!(user in result)) {
+        result[user] = new Set();
+      }
+
+      // Add the label.
+      result[user].add(label);
+    }
+  }
+
+  return result;
 }
