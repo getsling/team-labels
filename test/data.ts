@@ -29,6 +29,6 @@ export const CONFIG = {
   ],
   backend: [
     'bob',
-    'malory'
+    'malory',
   ],
 };
