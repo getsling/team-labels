@@ -1,11 +1,12 @@
 import { Context } from 'probot'
+import { LabelNames, Config } from './types'
+import { get_label_names } from './utils'
 
 // Path of the app configuration.
 const PATH = 'team_labels.yml';
-export interface Config { [key: string]: string[] };
 
 
-export async function get_labels(context: Context): Promise<Set<string>> {
+export async function get_valid_labels(context: Context): Promise<LabelNames> {
   /*
    * Get a set of valid labels.
    */
@@ -14,7 +15,7 @@ export async function get_labels(context: Context): Promise<Set<string>> {
   const response = await context.octokit.issues.listLabelsForRepo(repo);
 
   // Construct a set out of the names.
-  return new Set(response.data.map(label => label.name));
+  return get_label_names(response.data);
 }
 
 
@@ -22,8 +23,8 @@ export async function parse(context: Context): Promise<void> {
  /*
    * Parse the configuration and return a list of labels to apply.
    */
-  // Get valid labels.
-  const repo_labels = await get_labels(context);
+  // Get valid labels and assignees.
+  const repo_labels = await get_valid_labels(context);
 
   // Read the configuration.
   const config = (await context.config(PATH)) as Config;
@@ -40,4 +41,6 @@ export async function parse(context: Context): Promise<void> {
   if (invalid.size > 0) {
     context.log(`Unknown labels in config: ${Array.from(invalid).join(', ')}`)
   }
+
+  // Don't add a label if it already exists.
 }

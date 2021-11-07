@@ -1,6 +1,6 @@
 import { Context } from 'probot'
 import { EVENT, CONFIG } from './data'
-import { get_labels, parse } from '../src/config'
+import { get_valid_labels, parse } from '../src/config'
 
 
 describe('config', () => {
@@ -26,9 +26,9 @@ describe('config', () => {
     } as any;
   })
 
-  test('get_labels returns a set of labels', async () => {
+  test('get_valid_labels returns a set of labels', async () => {
     // Run the test.
-    let result = await get_labels(context);
+    let result = await get_valid_labels(context);
 
     // Check the result.
     let expected = new Set(['bug', 'enhancement', 'frontend']);
