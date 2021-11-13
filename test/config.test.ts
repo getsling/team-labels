@@ -2,7 +2,7 @@ import { Context } from 'probot'
 import event from "./fixtures/event.json";
 import payload from "./fixtures/issues.assigned.json";
 import config from "./fixtures/config.json";
-import { get_valid_labels, parse } from '../src/config'
+import { NO_CONFIG, get_valid_labels, parse } from '../src/config'
 
 
 describe('config', () => {
@@ -26,6 +26,16 @@ describe('config', () => {
     context.octokit.issues = {
       listLabelsForRepo: jest.fn().mockImplementation(async () => response),
     } as any;
+  })
+
+  test('throws an error if no config provided', async () => {
+    // Setup the test.
+    let no_config = async () => {throw new Error(NO_CONFIG)};
+    context.config = jest.fn().mockImplementation(no_config);
+
+    // Run the test and check the result.
+    let parser = async () => await parse(context);
+    await expect(parser).rejects.toThrowError(NO_CONFIG);
   })
 
   test('get_valid_labels returns a set of labels', async () => {

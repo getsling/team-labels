@@ -4,6 +4,7 @@ import { get_label_names } from './utils'
 
 // Path of the app configuration.
 const PATH = 'team_labels.yml';
+export const NO_CONFIG = 'could not load config';
 
 
 export async function get_valid_labels(context: Context): Promise<LabelNames> {
@@ -29,7 +30,7 @@ export async function parse(context: Context): Promise<UserToLabels> {
   // Read the configuration.
   const config = (await context.config(PATH)) as Config;
   if (!config) {
-    throw new Error('could not load config');
+    throw new Error(NO_CONFIG);
   }
 
   // Validate the config.
