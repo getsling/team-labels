@@ -1,9 +1,8 @@
-import { Context } from 'probot'
-import event from "./fixtures/event.json";
-import payload from "./fixtures/issues.assigned.json";
-import config from "./fixtures/config.json";
-import { NO_CONFIG, get_valid_labels, parse } from '../src/config'
-
+import { NO_CONFIG, get_valid_labels, parse } from '../src/config';
+import config from './fixtures/config.json';
+import event from './fixtures/event.json';
+import payload from './fixtures/issues.assigned.json';
+import { Context } from 'probot';
 
 describe('config', () => {
   let context: Context;
@@ -17,26 +16,24 @@ describe('config', () => {
 
     // Mock the API.
     let response = {
-      data: [
-        {'name': 'bug'},
-        {'name': 'enhancement'},
-        {'name': 'frontend'}
-      ]
+      data: [{ name: 'bug' }, { name: 'enhancement' }, { name: 'frontend' }]
     };
     context.octokit.issues = {
-      listLabelsForRepo: jest.fn().mockImplementation(async () => response),
+      listLabelsForRepo: jest.fn().mockImplementation(async () => response)
     } as any;
-  })
+  });
 
   test('throws an error if no config provided', async () => {
     // Setup the test.
-    let no_config = async () => {throw new Error(NO_CONFIG)};
+    let no_config = async () => {
+      throw new Error(NO_CONFIG);
+    };
     context.config = jest.fn().mockImplementation(no_config);
 
     // Run the test and check the result.
     let parser = async () => await parse(context);
     await expect(parser).rejects.toThrowError(NO_CONFIG);
-  })
+  });
 
   test('get_valid_labels returns a set of labels', async () => {
     // Run the test.
@@ -45,7 +42,7 @@ describe('config', () => {
     // Check the result.
     let expected = new Set(['bug', 'enhancement', 'frontend']);
     expect(result).toEqual(expected);
-  })
+  });
 
   test('parse reports unknown labels', async () => {
     // Monitor the log.
@@ -57,5 +54,5 @@ describe('config', () => {
     // Check the result.
     let expected = 'Unknown labels in config: backend';
     expect(spy.mock.calls[0][0]).toEqual(expected);
-  })
-})
+  });
+});
