@@ -1,10 +1,10 @@
 {
-  "frontend": [
-    "alice",
-    "bob"
-  ],
   "backend": [
     "bob",
     "malory"
+  ],
+  "frontend": [
+    "alice",
+    "bob"
   ]
 }

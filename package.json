@@ -1,25 +1,9 @@
 {
-  "name": "team-labels",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Add labels to issues and PRs based on the assignee.",
   "author": "Sling <admin@getsling.com>",
-  "license": "ISC",
-  "homepage": "https://github.com/getsling/team-labels",
-  "keywords": [
-    "probot",
-    "github",
-    "probot-app"
-  ],
-  "scripts": {
-    "build": "tsc",
-    "start": "probot run ./lib/index.js",
-    "test": "jest",
-    "lint": "eslint --ext ts,js,tsx,jsx"
-  },
   "dependencies": {
     "probot": "^11.0.1"
   },
+  "description": "Add labels to issues and PRs based on the assignee.",
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
     "@types/jest": "^26.0.19",
@@ -40,5 +24,21 @@
   },
   "engines": {
     "node": ">= 10.13.0"
-  }
+  },
+  "homepage": "https://github.com/getsling/team-labels",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "license": "ISC",
+  "name": "team-labels",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --ext ts,js,tsx,jsx",
+    "start": "probot run ./lib/index.js",
+    "test": "jest"
+  },
+  "version": "1.0.0"
 }
