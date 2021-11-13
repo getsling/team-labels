@@ -30,3 +30,10 @@ repos:
   rev: v0.16.0
   hooks:
   - id: gitlint
+- repo: local
+  hooks:
+  - id: npm-run-lint
+    name: npm run lint
+    entry: npm run lint
+    language: node
+    files: .*\.(ts|js|tsx|jsx)$
