@@ -1,6 +1,7 @@
 # team-labels
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that Add labels to issues and PRs based on the assignee.
+A GitHub App built with [Probot](https://github.com/probot/probot) that adds
+labels to issues and PRs based on the assignee.
 
 ## Setup
 
@@ -22,11 +23,12 @@ docker build -t team-labels .
 docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> team-labels
 ```
 
-## Contributing
+## Pre-commit Hooks
 
-If you have suggestions for how team-labels could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
-
-For more, check out the [Contributing Guide](CONTRIBUTING.md).
+This repo uses pre-commit hooks to validate its contents. First
+[install](https://pre-commit.com/#installation) pre-commit. Then
+[install](https://pre-commit.com/#3-install-the-git-hook-scripts) the scripts in
+the root folder of this repo.
 
 ## License
 
