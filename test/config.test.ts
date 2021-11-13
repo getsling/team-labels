@@ -1,5 +1,7 @@
 import { Context } from 'probot'
-import { EVENT, CONFIG } from './data'
+import event from "./fixtures/event.json";
+import payload from "./fixtures/issues.assigned.json";
+import config from "./fixtures/config.json";
 import { get_valid_labels, parse } from '../src/config'
 
 
@@ -8,9 +10,9 @@ describe('config', () => {
 
   beforeEach(async () => {
     // Create a mock context.
-    let event = JSON.parse(JSON.stringify(EVENT)) as any;
-    context = new Context(event, {} as any, {} as any);
-    context.config = jest.fn().mockImplementation(async () => JSON.parse(JSON.stringify(CONFIG)));
+    event.payload = payload as any;
+    context = new Context(event as any, {} as any, {} as any);
+    context.config = jest.fn().mockImplementation(async () => config);
     context.log = jest.fn() as any;
 
     // Mock the API.

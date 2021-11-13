@@ -1,0 +1,10 @@
+{
+  "frontend": [
+    "alice",
+    "bob"
+  ],
+  "backend": [
+    "bob",
+    "malory"
+  ]
+}
