@@ -1,15 +1,31 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "composite": true,
+    "allowJs": true,
+    "checkJs": true,
     "declaration": true,
-    "module": "CommonJS",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "lib": [
+      "es2015",
+      "es2017"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "outDir": "./lib",
+    "pretty": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true,
     "target": "es5"
   },
-  "exclude": [
-    "**/node_modules/**"
+  "include": [
+    "src/"
   ]
 }
