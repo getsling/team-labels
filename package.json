@@ -2,6 +2,8 @@
   "author": "Sling <admin@getsling.com>",
   "dependencies": {
     "@octokit/types": "^6.34.0",
+    "body-parser": "^1.19.0",
+    "bottleneck": "^2.19.5",
     "probot": "^11.0.1"
   },
   "description": "Add labels to issues and PRs based on the assignee.",
@@ -27,6 +29,25 @@
     "node": ">= 10.13.0"
   },
   "homepage": "https://github.com/getsling/team-labels",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/test/"
+    ],
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.[tj]sx?$",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
+  },
   "keywords": [
     "probot",
     "github",

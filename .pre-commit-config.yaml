@@ -32,8 +32,8 @@ repos:
   - id: gitlint
 - repo: local
   hooks:
-  - id: npm-run-lint
-    name: npm run lint
-    entry: npm run lint
+  - id: yarn-run-lint
+    name: yarn run lint
+    entry: yarn run lint
     language: node
     files: .*\.(ts|js|tsx|jsx)$

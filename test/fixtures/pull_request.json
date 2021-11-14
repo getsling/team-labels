@@ -1,5 +1,18 @@
 {
   "action": "assigned",
+  "assignees": [
+    {
+      "login": "alice"
+    },
+    {
+      "login": "bob"
+    }
+  ],
+  "labels": [
+    {
+      "name": "frontend"
+    }
+  ],
   "number": "1",
   "pull_request": {
     "number": "1",
@@ -13,18 +26,5 @@
     "owner": {
       "login": "owner"
     }
-  },
-  "labels": [
-    {
-      "name": "frontend"
-    }
-  ],
-  "assignees": [
-    {
-      "login": "alice"
-    },
-    {
-      "login": "bob"
-    }
-  ]
+  }
 }
