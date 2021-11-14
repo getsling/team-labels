@@ -74,6 +74,15 @@
   },
   "homepage": "https://github.com/getsling/team-labels",
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 90
+      }
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",
