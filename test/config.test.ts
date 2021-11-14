@@ -2,6 +2,7 @@ import { NO_CONFIG, get_valid_labels, parse } from '../src/config';
 import config from './fixtures/config.json';
 import event from './fixtures/event.json';
 import payload from './fixtures/pull_request.json';
+import labels from './fixtures/repo.labels.json';
 import { Context } from 'probot';
 
 describe('config', () => {
@@ -15,9 +16,7 @@ describe('config', () => {
     context.log = jest.fn() as any;
 
     // Mock the API.
-    let response = {
-      data: [{ name: 'bug' }, { name: 'enhancement' }, { name: 'frontend' }]
-    };
+    let response = { data: labels };
     context.octokit.issues = {
       listLabelsForRepo: jest.fn().mockImplementation(async () => response)
     } as any;
@@ -40,7 +39,7 @@ describe('config', () => {
     let result = await get_valid_labels(context);
 
     // Check the result.
-    let expected = new Set(['bug', 'enhancement', 'frontend']);
+    let expected = new Set(['bug', 'enhancement', 'frontend', 'full stack']);
     expect(result).toEqual(expected);
   });
 
@@ -63,7 +62,7 @@ describe('config', () => {
     // Check the result.
     let expected = {
       alice: new Set(['frontend']),
-      bob: new Set(['frontend'])
+      bob: new Set(['frontend', 'full stack'])
     };
     expect(result).toEqual(expected);
   });
