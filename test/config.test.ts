@@ -1,7 +1,7 @@
 import { NO_CONFIG, get_valid_labels, parse } from '../src/config';
 import config from './fixtures/config.json';
 import event from './fixtures/event.json';
-import payload from './fixtures/issues.assigned.json';
+import payload from './fixtures/pull_request.json';
 import { Context } from 'probot';
 
 describe('config', () => {

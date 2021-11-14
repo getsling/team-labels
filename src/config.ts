@@ -20,7 +20,8 @@ export async function get_valid_labels(context: Context): Promise<LabelNames> {
 
 export async function parse(context: Context): Promise<UserToLabels> {
   /*
-   * Parse the configuration and return a list of labels to apply.
+   * Parse the configuration and return a map of users to the labels required
+   * per user.
    */
   // Get valid labels and assignees.
   const repo_labels = await get_valid_labels(context);

@@ -7833,6 +7833,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "team-labels@workspace:."
   dependencies:
+    "@octokit/types": ^6.34.0
     "@trivago/prettier-plugin-sort-imports": ^3.1.1
     "@types/jest": ^26.0.19
     "@types/node": ^14.14.19

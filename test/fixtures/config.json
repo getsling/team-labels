@@ -6,5 +6,8 @@
   "frontend": [
     "alice",
     "bob"
+  ],
+  "full stack": [
+    "bob"
   ]
 }

@@ -1,5 +1,5 @@
 import myProbotApp from '../src';
-import payload from './fixtures/issues.opened.json';
+import payload from './fixtures/issue.json';
 import nock from 'nock';
 import { Probot, ProbotOctokit } from 'probot';
 

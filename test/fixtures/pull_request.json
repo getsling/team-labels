@@ -13,5 +13,18 @@
     "owner": {
       "login": "owner"
     }
-  }
+  },
+  "labels": [
+    {
+      "name": "frontend"
+    }
+  ],
+  "assignees": [
+    {
+      "login": "alice"
+    },
+    {
+      "login": "bob"
+    }
+  ]
 }
