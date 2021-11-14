@@ -43,8 +43,8 @@ export async function parse(context: Context): Promise<UserToLabels> {
 
   // Invert the mapping of the config for easy lookup.
   let result: UserToLabels = {};
-  for (let label in Array.from(valid)) {
-    for (let user in config[label]) {
+  for (let label of Array.from(valid)) {
+    for (let user of config[label]) {
       // Create an empty set.
       if (!(user in result)) {
         result[user] = new Set();

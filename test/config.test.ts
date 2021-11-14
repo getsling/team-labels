@@ -55,4 +55,16 @@ describe('config', () => {
     let expected = 'Unknown labels in config: backend';
     expect(spy.mock.calls[0][0]).toEqual(expected);
   });
+
+  test('parse returns a valid config', async () => {
+    // Run the test.
+    let result = await parse(context);
+
+    // Check the result.
+    let expected = {
+      alice: new Set(['frontend']),
+      bob: new Set(['frontend'])
+    };
+    expect(result).toEqual(expected);
+  });
 });

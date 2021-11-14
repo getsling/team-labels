@@ -33,6 +33,7 @@
   ],
   "license": "ISC",
   "name": "team-labels",
+  "packageManager": "yarn@3.1.0",
   "private": true,
   "scripts": {
     "build": "tsc",
