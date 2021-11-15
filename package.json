@@ -119,7 +119,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "lint": "eslint --ext ts,js,tsx,jsx",
+    "lint": "eslint --ext ts,js,tsx,jsx --fix",
     "start": "probot run ./lib/index.js",
     "test": "jest --coverage"
   },
