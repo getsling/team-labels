@@ -1,5 +1,6 @@
-import { LabelNames, Config, UserToLabels } from './types';
+import { LabelNames, ConfigFile, Config } from './types';
 import { get_label_names } from './utils';
+import { intersection, difference } from './set';
 import { Context } from 'probot';
 
 // Path of the app configuration.
@@ -18,7 +19,7 @@ export async function get_valid_labels(context: Context): Promise<LabelNames> {
   return get_label_names(response.data);
 }
 
-export async function parse(context: Context): Promise<UserToLabels> {
+export async function parse(context: Context): Promise<Config> {
   /*
    * Parse the configuration and return a map of users to the labels required
    * per user.
@@ -27,15 +28,15 @@ export async function parse(context: Context): Promise<UserToLabels> {
   const repo_labels = await get_valid_labels(context);
 
   // Read the configuration.
-  const config = (await context.config(PATH)) as Config;
+  const config = (await context.config(PATH)) as ConfigFile;
   if (!config) {
     throw new Error(NO_CONFIG);
   }
 
   // Validate the config.
-  let config_labels = Object.keys(config);
-  let valid = new Set([...config_labels].filter((x) => repo_labels.has(x)));
-  let invalid = new Set([...config_labels].filter((x) => !repo_labels.has(x)));
+  let config_labels = new Set(Object.keys(config));
+  let valid = intersection(config_labels, repo_labels);
+  let invalid = difference(config_labels, repo_labels);
 
   // Log the invalid labels.
   if (invalid.size > 0) {
@@ -43,7 +44,7 @@ export async function parse(context: Context): Promise<UserToLabels> {
   }
 
   // Invert the mapping of the config for easy lookup.
-  let result: UserToLabels = {};
+  let result: Config = {};
   for (let label of Array.from(valid)) {
     for (let user of config[label]) {
       // Create an empty set.

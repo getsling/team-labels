@@ -4,6 +4,7 @@
     "allowJs": true,
     "checkJs": true,
     "declaration": true,
+    "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
