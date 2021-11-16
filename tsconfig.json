@@ -28,6 +28,7 @@
   },
   "exclude": [
     "lib",
+    "coverage",
     "**/node_modules/**"
   ]
 }

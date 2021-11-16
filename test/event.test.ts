@@ -1,25 +1,25 @@
 import { get_new_labels } from '../src/event';
 import { Config } from '../src/types';
-//import pull_request from './fixtures/pull_request.json';
 import issue from './fixtures/issue.json';
 
-describe.each([
-  ['issue', issue]
-  //  ["pull_request", pull_request],
-])('%s event', (name, payload) => {
-  // A test configuration.
+describe('event', () => {
   const config: Config = {
     alice: new Set(['frontend']),
     bob: new Set(['frontend', 'full stack'])
   };
 
-  test('get_new_labels', () => {
+  test.each([
+    ['assignees and labels', issue.assignees, issue.labels, new Set(['full stack'])],
+    ['labels only', [], issue.labels, new Set()],
+    ['assignees only', issue.assignees, [], new Set(['frontend', 'full stack'])]
+  ])('get_new_labels with %s', (name, assignees, labels, expected) => {
+    // Suppress the undefined name.
+    expect(name);
+
     // Run the test.
-    console.log(name);
-    let result = get_new_labels(payload, config);
+    let result = get_new_labels(assignees, labels, config);
 
     // Check the result.
-    let expected = new Set(['enhancement', 'frontend']);
     expect(result).toEqual(expected);
   });
 });
