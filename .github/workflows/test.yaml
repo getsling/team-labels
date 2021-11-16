@@ -1,0 +1,19 @@
+---
+name: test
+
+on  :
+  pull_request:
+    branches: [main]
+
+  # Lets you run the action manually.
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: test
+      run: |
+        yarn test
