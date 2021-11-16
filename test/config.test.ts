@@ -24,10 +24,7 @@ describe('config', () => {
 
   test('throws an error if no config provided', async () => {
     // Setup the test.
-    let no_config = async () => {
-      throw new Error(NO_CONFIG);
-    };
-    context.config = jest.fn().mockImplementation(no_config);
+    context.config = jest.fn().mockImplementation(async () => null);
 
     // Run the test and check the result.
     let parser = async () => await parse(context);

@@ -2,15 +2,64 @@
   "action": "assigned",
   "assignees": [
     {
-      "login": "alice"
+      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+      "events_url": "https://api.github.com/users/alice/events{/privacy}",
+      "followers_url": "https://api.github.com/users/alice/followers",
+      "following_url": "https://api.github.com/users/alice/following{/other_user}",
+      "gists_url": "https://api.github.com/users/alice/gists{/gist_id}",
+      "gravatar_id": null,
+      "html_url": "https://github.com/alice",
+      "id": 1,
+      "login": "alice",
+      "node_id": "o6YrIvQ4v58wwhAymi4=",
+      "organizations_url": "https://api.github.com/users/alice/orgs",
+      "received_events_url": "https://api.github.com/users/alice/received_events",
+      "repos_url": "https://api.github.com/users/alice/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/alice/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/alice/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/alice"
     },
     {
-      "login": "bob"
+      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+      "events_url": "https://api.github.com/users/bob/events{/privacy}",
+      "followers_url": "https://api.github.com/users/bob/followers",
+      "following_url": "https://api.github.com/users/bob/following{/other_user}",
+      "gists_url": "https://api.github.com/users/bob/gists{/gist_id}",
+      "gravatar_id": null,
+      "html_url": "https://github.com/bob",
+      "id": 2,
+      "login": "bob",
+      "node_id": "pqjEzmPqtutU7o0IPZA=",
+      "organizations_url": "https://api.github.com/users/bob/orgs",
+      "received_events_url": "https://api.github.com/users/bob/received_events",
+      "repos_url": "https://api.github.com/users/bob/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/bob/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/bob/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/bob"
     }
   ],
   "labels": [
     {
-      "name": "frontend"
+      "color": "f29513",
+      "default": true,
+      "description": null,
+      "id": 1,
+      "name": "enhancement",
+      "node_id": "CwYeYfblt8JSqhZoLxU=",
+      "url": "https://api.github.com/repos/octocat/Hello-World/labels/enhancement"
+    },
+    {
+      "color": "c3ba2c",
+      "default": true,
+      "description": null,
+      "id": 2,
+      "name": "frontend",
+      "node_id": "8MUHO2pTwdZt6WWiYrc=",
+      "url": "https://api.github.com/repos/octocat/Hello-World/labels/frontend"
     }
   ],
   "number": "1",
