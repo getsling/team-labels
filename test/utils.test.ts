@@ -2,7 +2,7 @@ import { get_label_names, get_assignee_logins } from '../src/utils';
 import payload from './fixtures/pull_request.json';
 
 describe('utils', () => {
-  test('get_label_names', async () => {
+  test('get_label_names', () => {
     // Run the test.
     let result = get_label_names(payload.labels);
 
@@ -11,7 +11,7 @@ describe('utils', () => {
     expect(result).toEqual(expected);
   });
 
-  test('get_assignee_logins', async () => {
+  test('get_assignee_logins', () => {
     // Run the test.
     let result = get_assignee_logins(payload.assignees);
 

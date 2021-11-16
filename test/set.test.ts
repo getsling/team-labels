@@ -4,7 +4,7 @@ describe('set', () => {
   let a = new Set([1, 2, 3]);
   let b = new Set([2, 3, 4]);
 
-  test('a ∪ b', async () => {
+  test('a ∪ b', () => {
     // Run the test.
     let result = union(a, b);
 
@@ -13,7 +13,7 @@ describe('set', () => {
     expect(result).toEqual(expected);
   });
 
-  test('a ∩ b', async () => {
+  test('a ∩ b', () => {
     // Run the test.
     let result = intersection(a, b);
 
@@ -22,7 +22,7 @@ describe('set', () => {
     expect(result).toEqual(expected);
   });
 
-  test('a - b', async () => {
+  test('a - b', () => {
     // Run the test.
     let result = difference(a, b);
 
