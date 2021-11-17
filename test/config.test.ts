@@ -12,19 +12,19 @@ describe('config', () => {
     // Create a mock context.
     event.payload = payload as any;
     context = new Context(event as any, {} as any, {} as any);
-    context.config = jest.fn().mockImplementation(async () => config);
-    context.log = jest.fn() as any;
 
     // Mock the API.
-    let response = { data: labels };
+    const response = { data: labels };
+    context.log = jest.fn() as any;
+    context.config = jest.fn().mockResolvedValue(config) as any;
     context.octokit.issues = {
-      listLabelsForRepo: jest.fn().mockImplementation(async () => response)
+      listLabelsForRepo: jest.fn().mockResolvedValue(response)
     } as any;
   });
 
   test('throws an error if no config provided', async () => {
     // Setup the test.
-    context.config = jest.fn().mockImplementation(async () => null);
+    context.config = jest.fn().mockResolvedValue(null);
 
     // Run the test and check the result.
     let parser = async () => await parse(context);
