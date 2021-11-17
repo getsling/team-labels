@@ -1,22 +1,35 @@
 import { LabelNames, ConfigFile, Config } from './types';
 import { get_label_names } from './utils';
-import { intersection, difference } from './set';
+import { union, intersection, difference } from './set';
 import { Context } from 'probot';
 
 // Path of the app configuration.
 const PATH = 'team_labels.yml';
 export const NO_CONFIG = 'could not load config';
+const PAGE_SIZE = 100;
 
 export async function get_valid_labels(context: Context): Promise<LabelNames> {
   /*
    * Get a set of valid labels.
    */
-  // Get a list of labels for the repo.
-  const repo = context.repo();
-  const response = await context.octokit.issues.listLabelsForRepo(repo);
+  // Paginate the labels.
+  let page: number = 1;
+  let result: LabelNames = new Set();
+  let response;
 
-  // Construct a set out of the names.
-  return get_label_names(response.data);
+  do {
+    // Get the current page.
+    const repo = context.repo({ per_page: PAGE_SIZE, page: page });
+    response = await context.octokit.issues.listLabelsForRepo(repo);
+
+    // Union the results.
+    result = union(result, get_label_names(response.data));
+
+    // Advance the page.
+    page++;
+  } while (response.data.length === PAGE_SIZE);
+
+  return result;
 }
 
 export async function parse(context: Context): Promise<Config> {
