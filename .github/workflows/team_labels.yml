@@ -5,6 +5,11 @@ on  :
     types:
     - assigned
 
+  pull_request:
+    types:
+    - assigned
+    branches: [main]
+
 jobs:
   team-labels:
     runs-on: ubuntu-latest
