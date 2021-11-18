@@ -3,7 +3,7 @@ name: team-labels
 on  :
   issues:
     types:
-    - opened
+    - assigned
 
 jobs:
   team-labels:
