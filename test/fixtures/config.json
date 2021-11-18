@@ -1,0 +1,13 @@
+{
+  "backend": [
+    "bob",
+    "malory"
+  ],
+  "frontend": [
+    "alice",
+    "bob"
+  ],
+  "full stack": [
+    "bob"
+  ]
+}

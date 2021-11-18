@@ -1,0 +1,39 @@
+---
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.0.1
+  hooks:
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: check-yaml
+  - id: check-added-large-files
+  - id: check-json
+  - id: pretty-format-json
+    args: [--autofix, --indent=2]
+  - id: check-merge-conflict
+  - id: check-symlinks
+  - id: check-yaml
+  - id: destroyed-symlinks
+- repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
+  rev: v0.1.0
+  hooks:
+  - id: dockerfilelint
+    stages: [commit]
+- repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+  rev: 0.1.0
+  hooks:
+  - id: yamlfmt
+    args: [--mapping, '2', --sequence, '2', --offset, '0', --colons]
+- repo: https://github.com/jorisroovers/gitlint
+  rev: v0.16.0
+  hooks:
+  - id: gitlint
+- repo: local
+  hooks:
+  - id: yarn-run-lint
+    name: yarn run lint
+    entry: yarn run lint
+    language: node
+    files: .*\.(ts|js|tsx|jsx)$
