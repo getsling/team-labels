@@ -119,6 +119,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
+    "dist": "tsc -p tsconfig.dist.json",
     "lint": "eslint --ext ts,js,tsx,jsx --fix",
     "start": "probot run ./lib/index.js",
     "test": "jest --coverage"
