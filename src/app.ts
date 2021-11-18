@@ -19,7 +19,10 @@ async function handle(context: Context): Promise<void> {
   await add(context, get_new_labels(assignees, labels, config));
 }
 
-export = (app: Probot) => {
+export function app(app: Probot) {
+  /*
+   * Register the handlers.
+   */
   app.on('issues.assigned', handle);
   app.on('pull_request.assigned', handle);
-};
+}

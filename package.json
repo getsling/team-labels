@@ -2,6 +2,7 @@
   "author": "Sling <admin@getsling.com>",
   "dependencies": {
     "@octokit/types": "^6.34.0",
+    "@probot/adapter-github-actions": "^3.0.1",
     "body-parser": "^1.19.0",
     "bottleneck": "^2.19.5",
     "hbs": "^4.2.0",
@@ -14,6 +15,7 @@
     "@types/node": "^14.14.19",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "@vercel/ncc": "^0.32.0",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^25.2.4",
@@ -119,7 +121,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "dist": "tsc -p tsconfig.dist.json",
+    "dist": "tsc && ncc build lib/src/index.js -o dist",
     "lint": "eslint --ext ts,js,tsx,jsx --fix",
     "start": "probot run ./lib/index.js",
     "test": "jest --coverage"
