@@ -1,15 +1,25 @@
+import { parse } from './config';
+import { add, get_new_labels } from './labels';
+import { Context } from 'probot';
 import { Probot } from 'probot';
 
-export = (app: Probot) => {
-  app.on('issues.assigned', async (context) => {
-    const issueComment = context.issue({
-      body: 'Thanks for opening this issue!'
-    });
-    await context.octokit.issues.createComment(issueComment);
-  });
-  // For more information on building apps:
-  // https://probot.github.io/docs/
+async function handle(context: Context): Promise<void> {
+  /*
+   * Add labels to an event.
+   */
+  // Parse the config.
+  let config = await parse(context);
 
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
+  // Get the existing assignees and labels.
+  let target = context.payload.issue ?? context.payload.pull_request;
+  let assignees = target.assignees ?? [];
+  let labels = target.labels ?? [];
+
+  // Add the new labels.
+  await add(context, get_new_labels(assignees, labels, config));
+}
+
+export = (app: Probot) => {
+  app.on('issues.assigned', handle);
+  app.on('pull_request.assigned', handle);
 };

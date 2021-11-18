@@ -1,7 +1,7 @@
 import { add, get_new_labels } from '../src/labels';
 import { Context } from 'probot';
 import { Config } from '../src/types';
-import issue from './fixtures/issue.json';
+import payload from './fixtures/issue.json';
 
 describe('labels', () => {
   let context: Context;
@@ -24,9 +24,14 @@ describe('labels', () => {
   });
 
   test.each([
-    ['assignees and labels', issue.assignees, issue.labels, new Set(['full stack'])],
-    ['labels only', [], issue.labels, new Set()],
-    ['assignees only', issue.assignees, [], new Set(['frontend', 'full stack'])]
+    [
+      'assignees and labels',
+      payload.issue.assignees,
+      payload.issue.labels,
+      new Set(['full stack'])
+    ],
+    ['labels only', [], payload.issue.labels, new Set()],
+    ['assignees only', payload.issue.assignees, [], new Set(['frontend', 'full stack'])]
   ])('get_new_labels with %s', (name, assignees, labels, expected) => {
     // Suppress the undefined name.
     expect(name);
