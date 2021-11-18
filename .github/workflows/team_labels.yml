@@ -1,0 +1,14 @@
+---
+name: team-labels
+on  :
+  issues:
+    types:
+    - opened
+
+jobs:
+  team-labels:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: getsling/team-labels@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

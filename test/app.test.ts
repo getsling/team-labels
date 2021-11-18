@@ -1,4 +1,4 @@
-import app from '../src';
+import { app } from '../src/app';
 import issue_payload from './fixtures/issue.json';
 import pull_request_payload from './fixtures/pull_request.json';
 import nock from 'nock';

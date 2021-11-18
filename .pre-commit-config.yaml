@@ -9,6 +9,7 @@ repos:
   - id: end-of-file-fixer
   - id: check-yaml
   - id: check-added-large-files
+    files: ^(?!.*(dist\/index\.js)).*$
   - id: check-json
   - id: pretty-format-json
     args: [--autofix, --indent=2]
@@ -36,4 +37,4 @@ repos:
     name: yarn run lint
     entry: yarn run lint
     language: node
-    files: .*\.(ts|js|tsx|jsx)$
+    files: .*\.(ts|tsx)$

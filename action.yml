@@ -1,0 +1,6 @@
+---
+name       : Team Labels
+description: Label issues and pulls using assignees.
+runs       :
+  using: node16
+  main: dist/index.js

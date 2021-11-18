@@ -5,6 +5,24 @@ __metadata:
   version: 5
   cacheKey: 8
 
+"@actions/core@npm:^1.2.6":
+  version: 1.6.0
+  resolution: "@actions/core@npm:1.6.0"
+  dependencies:
+    "@actions/http-client": ^1.0.11
+  checksum: ac4689b6095110546d771f15388173c5e4ff3f808a9cadca2089df5e92b8c81e8ee32c47a38b7ab9dc9e690bac4be71561a73fec631547dfa57ee9b7ff7dc6d7
+  languageName: node
+  linkType: hard
+
+"@actions/http-client@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "@actions/http-client@npm:1.0.11"
+  dependencies:
+    tunnel: 0.0.6
+  checksum: 2c72834ec36a121ae95d2cb61fd28234eae2ab265a2aefe857a9eeb788ea77b284ad727ecd3c67fefd1920d5f2800b6c1ba6916b39d44f81f293b4b0020d367c
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.0":
   version: 7.16.0
   resolution: "@babel/code-frame@npm:7.16.0"
@@ -1107,6 +1125,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@probot/adapter-github-actions@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@probot/adapter-github-actions@npm:3.0.1"
+  dependencies:
+    "@actions/core": ^1.2.6
+    pino: ^6.11.0
+    probot: ^11.0.6
+    through2: ^4.0.2
+  checksum: 22ede399e8ff1a2b6a631ff0f9cea1b6a753b5b43dd26efab4db8b294788879683e32118866ed857433b3f2dc505d9186724e3650887f9b84fbc80c0c94e7d68
+  languageName: node
+  linkType: hard
+
 "@probot/get-private-key@npm:^1.1.0":
   version: 1.1.1
   resolution: "@probot/get-private-key@npm:1.1.1"
@@ -1717,6 +1747,17 @@ __metadata:
     "@typescript-eslint/types": 5.3.1
     eslint-visitor-keys: ^3.0.0
   checksum: e2a2fb9dfa77d1db685540dd65c7fc8477ad910459cfdfe3600fff4ed27105f5a976cf1cfddc588f9231d74287e722b038ea17ba7b3ccff672642b492222f303
+  languageName: node
+  linkType: hard
+
+"@vercel/ncc@npm:^0.32.0":
+  version: 0.32.0
+  resolution: "@vercel/ncc@npm:0.32.0"
+  dependencies:
+    node-gyp: latest
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: 30be88188389d6d3a46166195c70eb0fb8398c0e252cb70f9992306e05697506fdd6b7c8eb043723df93416ea7d6108b1eb010b19a099d92a5d973cbf6149830
   languageName: node
   linkType: hard
 
@@ -6572,7 +6613,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino@npm:^6.13.0, pino@npm:^6.7.0":
+"pino@npm:^6.11.0, pino@npm:^6.13.0, pino@npm:^6.7.0":
   version: 6.13.3
   resolution: "pino@npm:6.13.3"
   dependencies:
@@ -6675,7 +6716,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"probot@npm:^11.0.1":
+"probot@npm:^11.0.1, probot@npm:^11.0.6":
   version: 11.4.1
   resolution: "probot@npm:11.4.1"
   dependencies:
@@ -6918,6 +6959,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"readable-stream@npm:3, readable-stream@npm:^3.0.0, readable-stream@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "readable-stream@npm:3.6.0"
+  dependencies:
+    inherits: ^2.0.3
+    string_decoder: ^1.1.1
+    util-deprecate: ^1.0.1
+  checksum: d4ea81502d3799439bb955a3a5d1d808592cf3133350ed352aeaa499647858b27b1c4013984900238b0873ec8d0d8defce72469fb7a83e61d53f5ad61cb80dc8
+  languageName: node
+  linkType: hard
+
 "readable-stream@npm:^2.0.6":
   version: 2.3.7
   resolution: "readable-stream@npm:2.3.7"
@@ -6930,17 +6982,6 @@ __metadata:
     string_decoder: ~1.1.1
     util-deprecate: ~1.0.1
   checksum: e4920cf7549a60f8aaf694d483a0e61b2a878b969d224f89b3bc788b8d920075132c4b55a7494ee944c7b6a9a0eada28a7f6220d80b0312ece70bbf08eeca755
-  languageName: node
-  linkType: hard
-
-"readable-stream@npm:^3.0.0, readable-stream@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "readable-stream@npm:3.6.0"
-  dependencies:
-    inherits: ^2.0.3
-    string_decoder: ^1.1.1
-    util-deprecate: ^1.0.1
-  checksum: d4ea81502d3799439bb955a3a5d1d808592cf3133350ed352aeaa499647858b27b1c4013984900238b0873ec8d0d8defce72469fb7a83e61d53f5ad61cb80dc8
   languageName: node
   linkType: hard
 
@@ -7844,11 +7885,13 @@ __metadata:
   resolution: "team-labels@workspace:."
   dependencies:
     "@octokit/types": ^6.34.0
+    "@probot/adapter-github-actions": ^3.0.1
     "@trivago/prettier-plugin-sort-imports": ^3.1.1
     "@types/jest": ^26.0.19
     "@types/node": ^14.14.19
     "@typescript-eslint/eslint-plugin": ^5.3.1
     "@typescript-eslint/parser": ^5.3.1
+    "@vercel/ncc": ^0.32.0
     body-parser: ^1.19.0
     bottleneck: ^2.19.5
     eslint: ^8.2.0
@@ -7906,6 +7949,15 @@ __metadata:
   version: 5.0.0
   resolution: "throat@npm:5.0.0"
   checksum: 031ff7f4431618036c1dedd99c8aa82f5c33077320a8358ed829e84b320783781d1869fe58e8f76e948306803de966f5f7573766a437562c9f5c033297ad2fe2
+  languageName: node
+  linkType: hard
+
+"through2@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "through2@npm:4.0.2"
+  dependencies:
+    readable-stream: 3
+  checksum: ac7430bd54ccb7920fd094b1c7ff3e1ad6edd94202e5528331253e5fde0cc56ceaa690e8df9895de2e073148c52dfbe6c4db74cacae812477a35660090960cc0
   languageName: node
   linkType: hard
 
@@ -8042,6 +8094,13 @@ __metadata:
   peerDependencies:
     typescript: ">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta"
   checksum: 1843f4c1b2e0f975e08c4c21caa4af4f7f65a12ac1b81b3b8489366826259323feb3fc7a243123453d2d1a02314205a7634e048d4a8009921da19f99755cdc48
+  languageName: node
+  linkType: hard
+
+"tunnel@npm:0.0.6":
+  version: 0.0.6
+  resolution: "tunnel@npm:0.0.6"
+  checksum: c362948df9ad34b649b5585e54ce2838fa583aa3037091aaed66793c65b423a264e5229f0d7e9a95513a795ac2bd4cb72cda7e89a74313f182c1e9ae0b0994fa
   languageName: node
   linkType: hard
 
