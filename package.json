@@ -4,6 +4,7 @@
     "@octokit/types": "^6.34.0",
     "body-parser": "^1.19.0",
     "bottleneck": "^2.19.5",
+    "hbs": "^4.2.0",
     "probot": "^11.0.1"
   },
   "description": "Add labels to issues and PRs based on the assignee.",
