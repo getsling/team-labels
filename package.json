@@ -120,7 +120,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ext ts,js,tsx,jsx --fix",
-    "start": "probot run ./lib/index.js",
+    "start": "probot run ./lib/src/index.js",
     "test": "jest --coverage"
   },
   "version": "1.0.0"
