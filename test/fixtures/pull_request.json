@@ -1,7 +1,39 @@
 {
   "action": "assigned",
-  "assignees": [
-    {
+  "installation": {
+    "id": 1
+  },
+  "pull_request": {
+    "assignees": [],
+    "author_association": "OWNER",
+    "auto_merge": null,
+    "base": "develop",
+    "body": "Please pull these awesome changes in!",
+    "closed_at": "2011-01-26T19:01:12Z",
+    "comments_url": "https://api.github.com/repos/octocat/Hello-World/issues/1/comments",
+    "commits_url": "https://api.github.com/repos/octocat/Hello-World/pulls/1/commits",
+    "created_at": "2011-01-26T19:01:12Z",
+    "diff_url": "https://github.com/octocat/Hello-World/pull/1.diff",
+    "draft": false,
+    "head": "octocat:test-branch",
+    "html_url": "https://github.com/octocat/Hello-World/pull/1",
+    "id": 1,
+    "issue_url": "https://api.github.com/repos/octocat/Hello-World/issues/1",
+    "labels": [],
+    "locked": true,
+    "merge_commit_sha": "e5bd3914e2e596debea16f433f57875b5b90bcd6",
+    "merged_at": "2011-01-26T19:01:12Z",
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MQ==",
+    "number": 1,
+    "patch_url": "https://github.com/octocat/Hello-World/pull/1.patch",
+    "review_comment_url": "https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}",
+    "review_comments_url": "https://api.github.com/repos/octocat/Hello-World/pulls/1/comments",
+    "state": "open",
+    "statuses_url": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+    "title": "Amazing new feature",
+    "updated_at": "2011-01-26T19:01:12Z",
+    "url": "https://api.github.com/repos/octocat/Hello-World/pulls/1",
+    "user": {
       "avatar_url": "https://github.com/images/error/octocat_happy.gif",
       "events_url": "https://api.github.com/users/alice/events{/privacy}",
       "followers_url": "https://api.github.com/users/alice/followers",
@@ -20,60 +52,12 @@
       "subscriptions_url": "https://api.github.com/users/alice/subscriptions",
       "type": "User",
       "url": "https://api.github.com/users/alice"
-    },
-    {
-      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-      "events_url": "https://api.github.com/users/bob/events{/privacy}",
-      "followers_url": "https://api.github.com/users/bob/followers",
-      "following_url": "https://api.github.com/users/bob/following{/other_user}",
-      "gists_url": "https://api.github.com/users/bob/gists{/gist_id}",
-      "gravatar_id": null,
-      "html_url": "https://github.com/bob",
-      "id": 2,
-      "login": "bob",
-      "node_id": "pqjEzmPqtutU7o0IPZA=",
-      "organizations_url": "https://api.github.com/users/bob/orgs",
-      "received_events_url": "https://api.github.com/users/bob/received_events",
-      "repos_url": "https://api.github.com/users/bob/repos",
-      "site_admin": false,
-      "starred_url": "https://api.github.com/users/bob/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/bob/subscriptions",
-      "type": "User",
-      "url": "https://api.github.com/users/bob"
-    }
-  ],
-  "labels": [
-    {
-      "color": "f29513",
-      "default": true,
-      "description": null,
-      "id": 1,
-      "name": "enhancement",
-      "node_id": "CwYeYfblt8JSqhZoLxU=",
-      "url": "https://api.github.com/repos/octocat/Hello-World/labels/enhancement"
-    },
-    {
-      "color": "c3ba2c",
-      "default": true,
-      "description": null,
-      "id": 2,
-      "name": "frontend",
-      "node_id": "8MUHO2pTwdZt6WWiYrc=",
-      "url": "https://api.github.com/repos/octocat/Hello-World/labels/frontend"
-    }
-  ],
-  "number": "1",
-  "pull_request": {
-    "number": "1",
-    "title": "test",
-    "user": {
-      "login": "creator"
     }
   },
   "repository": {
-    "name": "team-labels",
+    "name": "octocat",
     "owner": {
-      "login": "owner"
+      "login": "octocat"
     }
   }
 }
